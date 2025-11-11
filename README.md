@@ -1,0 +1,2 @@
+O app permite avaliar e trocar seu celular de forma rápida e transparente. O usuário informa o aparelho, faz testes guiados e envia fotos; o sistema gera um laudo com nota, condição e valor de troca. Com base nisso, o app sugere modelos do estoque ligeiramente melhores dentro de uma faixa de preço que o usuário aceita pagar, explicando os ganhos (desempenho, câmera, bateria etc.). O usuário escolhe, paga a diferença e agenda para realizar. 
+# APP-DE-TROCA-DE-CELULAR---N2
