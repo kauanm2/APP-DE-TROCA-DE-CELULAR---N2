@@ -1,0 +1,45 @@
+{
+  "Resources": {
+    "FilaAvaliacao": {
+      "Type": "AWS::SQS::Queue",
+      "Properties": {
+        "QueueName": "sistema-avaliacao-fila-dev",
+        "VisibilityTimeout": 300,
+        "MessageRetentionPeriod": 1209600,
+        "ReceiveMessageWaitTimeSeconds": 20,
+        "RedrivePolicy": {
+          "deadLetterTargetArn": {
+            "Fn::GetAtt": [
+              "FilaAvaliacaoDLQ",
+              "Arn"
+            ]
+          },
+          "maxReceiveCount": 3
+        },
+        "Tags": [
+          {
+            "Key": "Environment",
+            "Value": "dev"
+          },
+          {
+            "Key": "Application",
+            "Value": "SistemaAvaliacaoAparelhos"
+          }
+        ]
+      }
+    },
+    "FilaAvaliacaoDLQ": {
+      "Type": "AWS::SQS::Queue",
+      "Properties": {
+        "QueueName": "sistema-avaliacao-fila-dlq-dev",
+        "MessageRetentionPeriod": 1209600,
+        "Tags": [
+          {
+            "Key": "Environment",
+            "Value": "dev"
+          }
+        ]
+      }
+    }
+  }
+}

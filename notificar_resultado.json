@@ -1,0 +1,31 @@
+{
+  "Resources": {
+    "TopicoNotificacoes": {
+      "Type": "AWS::SNS::Topic",
+      "Properties": {
+        "TopicName": "sistema-avaliacao-notificacoes-dev",
+        "DisplayName": "Notificações do Sistema de Avaliação",
+        "Subscription": [
+          {
+            "Endpoint": "seu-email@exemplo.com",
+            "Protocol": "email"
+          }
+        ],
+        "Tags": [
+          {
+            "Key": "Environment",
+            "Value": "dev"
+          }
+        ]
+      }
+    }
+  },
+  "Outputs": {
+    "TopicoNotificacoesArn": {
+      "Description": "ARN do Tópico SNS de Notificações",
+      "Value": {
+        "Ref": "TopicoNotificacoes"
+      }
+    }
+  }
+}
